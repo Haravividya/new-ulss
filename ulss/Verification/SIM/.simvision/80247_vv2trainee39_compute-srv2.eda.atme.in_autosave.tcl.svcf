@@ -1,0 +1,203 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set whats-new-dont-show-at-startup 1
+
+#
+# Databases
+#
+database require wave -search {
+	./wave.shm/wave.trn
+	/home/vv2trainee39/Desktop/vidya/ulss/Verification/SIM/wave.shm/wave.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x665+-1+27}] != ""} {
+    window geometry "Waveform 1" 1366x665+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	wave::ulss_top.dut.rate_limiter_16to4_rstn
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.rate_limiter_16to4_clk
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_eop_0
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_eop_1
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_eop_2
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_eop_3
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_sop_0
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_sop_1
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_sop_2
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_sop_3
+	} ]
+set id [waveform add -signals  {
+	{wave::ulss_top.dut.out_stream_0[63:0]}
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_stream_0_valid
+	} ]
+set id [waveform add -signals  {
+	{wave::ulss_top.dut.out_stream_1[63:0]}
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_stream_1_valid
+	} ]
+set id [waveform add -signals  {
+	{wave::ulss_top.dut.out_stream_2[63:0]}
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_stream_2_valid
+	} ]
+set id [waveform add -signals  {
+	{wave::ulss_top.dut.out_stream_3[63:0]}
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.out_stream_3_valid
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_0
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_1
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_2
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_3
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_4
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_5
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_6
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_7
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_8
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_9
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_10
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_11
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_12
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_13
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_14
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_eop_15
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_0
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_1
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_2
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_3
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_4
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_5
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_6
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_7
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_8
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_9
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_10
+	} ]
+set id [waveform add -signals  {
+	wave::ulss_top.dut.in_sop_11
+	} ]
+
+waveform xview limits 0 52ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+0
+
+#
+# Layout selection
+#
