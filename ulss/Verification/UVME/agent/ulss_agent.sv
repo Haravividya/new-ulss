@@ -29,5 +29,7 @@ class ulss_agent extends uvm_agent;
       `uvm_info("agent_class", "Inside Connect Phase!", UVM_HIGH)
     endfunction
 
+
+
 endclass
 
